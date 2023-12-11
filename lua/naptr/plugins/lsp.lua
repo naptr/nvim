@@ -59,6 +59,12 @@ return {
                             }
                         })
                     end
+                },
+                ensure_installed = {
+                    "bashls", "clangd", "cmake", "cssls", "html", "jsonls",
+                    "dockerls", "docker_compose_language_service", "eslint",
+                    "emmet_language_server", "gopls", "tsserver", "lua_ls",
+                    "marksman", "rust_analyzer", "tailwindcss", "volar", "yamlls"
                 }
             })
         end,
