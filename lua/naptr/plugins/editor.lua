@@ -35,9 +35,14 @@ return {
     "folke/trouble.nvim",
     "tpope/vim-fugitive",
     {
-        "f-person/git-blame.nvim",
+        "lewis6991/gitsigns.nvim",
         opts = {
-            ignored_filetypes = {'netrw'}
+            current_line_blame = true,
+            current_line_blame_opts = {
+                ignore_whitespace = true,
+                delay = 0
+            },
+            current_line_blame_formatter = ' <author> • <author_time:%x, %X> • <summary>'
         }
     },
     "mbbill/undotree",
