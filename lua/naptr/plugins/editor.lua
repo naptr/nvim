@@ -34,6 +34,12 @@ return {
     "metakirby5/codi.vim",
     "folke/trouble.nvim",
     "tpope/vim-fugitive",
+    {
+        "f-person/git-blame.nvim",
+        opts = {
+            ignored_filetypes = {'netrw'}
+        }
+    },
     "mbbill/undotree",
     "sainnhe/gruvbox-material",
     {
