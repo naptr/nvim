@@ -64,15 +64,18 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 -- colorscheme
-vim.opt.background = 'dark'
-vim.cmd.colorscheme('gruvbox-material')
+vim.opt.background = "dark"
+
+-- -- poimandres
+-- vim.cmd.colorscheme("poimandres")
 -- -- gruvbox
-vim.g.gruvbox_material_background = 'medium'
-vim.g.gruvbox_material_foreground = 'material'
+vim.g.gruvbox_material_background = "soft"
+vim.g.gruvbox_material_foreground = "material"
 vim.g.gruvbox_material_better_performance = 1
 vim.g.gruvbox_material_enable_italic = 1
 vim.g.gruvbox_material_show_eob = 0
-vim.g.gruvbox_material_transparent_background = 2
+-- vim.g.gruvbox_material_transparent_background = 2
+vim.cmd.colorscheme("gruvbox-material")
 
 vim.g.netrw_banner = 0
 
