@@ -42,13 +42,15 @@ return {
                 ignore_whitespace = true,
                 delay = 0
             },
-            current_line_blame_formatter = ' <author> • <author_time:%x, %X> • <summary>'
+            current_line_blame_formatter = ' <author> • <author_time:%x, %R> • <summary>',
+            sign_priority = 10,
+            numhl = true,
+            signcolumn = false
         }
     },
-    "mbbill/undotree",
     "sainnhe/gruvbox-material",
     {
-        "freddiehaddad/feline.nvim",
-        config = function () require("naptr.statusline") end
+        "rebelot/heirline.nvim",
+        config = true
     }
 }

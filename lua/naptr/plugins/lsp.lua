@@ -24,6 +24,7 @@ return {
             local lsp_config = require("lspconfig")
             local lsp_zero = require("lsp-zero")
             lsp_zero.extend_lspconfig()
+            lsp_zero.extend_cmp()
 
             lsp_zero.on_attach(function (_, bufnr)
                 lsp_zero.default_keymaps({ buffer = bufnr })
@@ -37,10 +38,10 @@ return {
             require("mason-lspconfig").setup({
                 handlers = {
                     lsp_zero.default_setup,
-                    lua_ls = function ()
+                    lua_ls = function()
                         lsp_config.lua_ls.setup(lsp_zero.nvim_lua_ls())
                     end,
-                    jsonls = function ()
+                    jsonls = function()
                         lsp_config.jsonls.setup({
                             capabilities = capabilities,
                             settings = {

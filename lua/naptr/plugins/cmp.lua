@@ -60,12 +60,6 @@ return {
                     cmp.config.compare.sort_text
                 }
             },
-            -- sources = {
-            --  { name = "nvim-lsp" },
-            --  { name = "path" },
-            --  { name = "buffer", keyword_length = 3 },
-            --  { name = "luasnip" }
-            -- },
             sources = {
                 { name = "path" },
                 { name = "buffer", keyword_length = 3 },
@@ -91,9 +85,7 @@ return {
             },
             experimental = {
                 ghost_text = true
-            },
-            entry_filter = function ()
-            end
+            }
         })
     end
 }

@@ -50,6 +50,7 @@ vim.opt.scrolloff = 8
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.cursorline = true
 
 vim.o.shortmess = vim.o.shortmess:gsub("S", "")
 
@@ -76,6 +77,11 @@ vim.g.gruvbox_material_enable_italic = 1
 vim.g.gruvbox_material_show_eob = 0
 -- vim.g.gruvbox_material_transparent_background = 2
 vim.cmd.colorscheme("gruvbox-material")
+
+vim.api.nvim_set_hl(0, "VirtualTextError", { link = "Red" })
+vim.api.nvim_set_hl(0, "VirtualTextWarn", { link = "Yellow" })
+vim.api.nvim_set_hl(0, "VirtualTextInfo", { link = "Blue" })
+vim.api.nvim_set_hl(0, "VirtualTextHint", { link = "Green" })
 
 vim.g.netrw_banner = 0
 
