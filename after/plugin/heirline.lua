@@ -78,7 +78,7 @@ local Git = {
     { -- git branch name
         provider = function(self)
             local icon = ""
-            return " " .. icon .. " " .. self.status_dict.head .. " "
+            return icon .. " " .. self.status_dict.head .. " "
         end,
         hl = { bold = true }
     },
@@ -257,7 +257,6 @@ local Ruler = {
 
 local Left = {
     VimMode,
-    Git,
     FileNameBlock
 }
 
@@ -266,11 +265,14 @@ local Right = {
     Diagnostics,
     { provider = "  "},
     Ruler,
+    { provider = "  "},
+    Git,
+    { provider = "  "},
     {
         init = function(self)
             self.mode = vim.fn.mode(1)
         end,
-        provider = " █",
+        provider = "█",
         hl = function(self)
             local fg = utils.get_highlight(self.mode_colors[self.mode]).fg
             return { fg = fg }
