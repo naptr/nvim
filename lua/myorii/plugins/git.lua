@@ -8,7 +8,7 @@ return {
 		delay = 200,
 		ignore_whitespace = true
 	    },
-	    current_line_blame_formatter = "<author>, <author_time:%R> • <summary>",
+	    current_line_blame_formatter = " <author> • <author_time:%x, %R> • <summary>",
 	}
     }
 }
