@@ -14,7 +14,20 @@ return {
 		vim.lsp.protocol.make_client_capabilities(),
 		cmp_lsp.default_capabilities()
 	    )
-	    capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+	    local os = require("os")
+	    local path = {
+		["/Users/naptr"] = "/Users/naptr/n/lib/node_modules",
+		["/home/myorii"] = "/usr/local/lib/node_modules",
+	    }
+	    local home = os.getenv("HOME")
+	    local node_modules
+
+	    if (path[home]) then
+		node_modules = path[home]
+	    else
+		node_modules = "C:\\Users\\work\\AppData\\npm\\node_modules"
+	    end
 
 	    require("mason").setup({})
 	    require("mason-lspconfig").setup({
@@ -47,12 +60,11 @@ return {
 		    end,
 		    ["ts_ls"] = function ()
 			require("lspconfig").ts_ls.setup({
-			    capabilities = capabilities,
 			    init_options = {
 				plugins = {
 				    {
 					name = "@vue/typescript-plugin",
-					location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+					location = node_modules .. "/@vue/typescript-plugin",
 					languages = { "vue" }
 				    }
 				}
@@ -79,11 +91,10 @@ return {
 		    end,
 		    ["volar"] = function ()
 			require("lspconfig").volar.setup({
-			    capabilities = capabilities,
 			    filetypes = { "vue" },
 			    init_options = {
 				typescript = {
-				    tsdk = "/usr/local/lib/node_modules/typescript/lib"
+				    tsdk = node_modules .. "/typescript/lib"
 				}
 			    }
 			})
