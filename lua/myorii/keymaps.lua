@@ -15,3 +15,6 @@ vim.keymap.set("n", "<leader>v", "<C-v>", { remap = true } )
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 vim.api.nvim_create_user_command("Ex", "Oil", {})
+
+-- Terminal related keymaps
+vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
