@@ -131,7 +131,7 @@ local Git = {
                 return "-" .. self.status_dict.removed
             end,
             hl = function()
-                local fg = utils.get_highlight("GitSignsDelete").bg
+                local fg = utils.get_highlight("GitSignsDelete").fg
                 return { fg = fg }
             end
         },
