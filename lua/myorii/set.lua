@@ -23,11 +23,10 @@ vim.opt.shiftwidth = 4
 vim.opt.scrolloff = 8
 
 vim.opt.colorcolumn = "80"
+vim.opt.signcolumn = "no"
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-
-vim.opt.signcolumn = "number"
 
 vim.opt.conceallevel = 2
 
