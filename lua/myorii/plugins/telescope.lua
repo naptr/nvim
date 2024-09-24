@@ -2,10 +2,26 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function ()
+	local telescopeConfig = require("telescope.config")
+
+	-- clone default telescope configuration
+	local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+	-- search inside dotfiles
+	table.insert(vimgrep_arguments, "--hidden")
+	-- exclude .git folder
+	table.insert(vimgrep_arguments, "--glob")
+	table.insert(vimgrep_arguments, "!**/.git/*")
+
 	require("telescope").setup({
 	    defaults = {
 		file_ignore_patterns = {
 		    "node_modules"
+		},
+		vimgrep_arguments = vimgrep_arguments
+	    },
+	    pickers = {
+		find_files = {
+		    find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" }
 		}
 	    }
 	})
