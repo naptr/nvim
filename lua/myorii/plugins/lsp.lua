@@ -15,16 +15,14 @@ return {
 		cmp_lsp.default_capabilities()
 	    )
 
-	    local os = require("os")
-	    local path = {
-		["/Users/naptr"] = "/Users/naptr/n/lib/node_modules",
-		["/home/myorii"] = "/usr/local/lib/node_modules",
-	    }
+	    local fixed_node_modules_location = "/.local/lib/node_modules"
 	    local home = os.getenv("HOME")
+	    local os = jit.os
+
 	    local node_modules
 
-	    if (path[home]) then
-		node_modules = path[home]
+	    if (os == "Linux" or os == "OSX") then
+		node_modules = home .. "/" .. fixed_node_modules_location
 	    else
 		node_modules = "C:\\Users\\work\\AppData\\npm\\node_modules"
 	    end
@@ -53,7 +51,10 @@ return {
 			    capabilities = capabilities,
 			    settings = {
 				Lua = {
-				    diagnostics = { globals = { "vim" } }
+				    diagnostics = {
+					globals = { "vim" },
+					disable = { "missing-fields" }
+				    }
 				}
 			    }
 			})
@@ -80,6 +81,11 @@ return {
 		    end,
 		    ["eslint"] = function ()
 			require("lspconfig").eslint.setup({
+			    settings = {
+				experimental = {
+				    useFlatConfig = false
+				}
+			    },
 			    filetypes = {
 				"javascript",
 				"typescript",
