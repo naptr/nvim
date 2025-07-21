@@ -10,6 +10,5 @@ autocmd("LspAttach", {
 	local opts = { buffer = e.buf }
 	vim.keymap.set("n", "gd", function () vim.lsp.buf.definition() end, opts)
 	vim.keymap.set("n", "K", function () vim.lsp.buf.hover() end, opts)
-	vim.keymap.set("n", "<C-h>", function () vim.lsp.buf.signature_help() end, opts)
     end
 })
