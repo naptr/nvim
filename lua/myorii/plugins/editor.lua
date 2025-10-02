@@ -48,5 +48,38 @@ return {
             },
             default_file_explorer = true
         }
+    },
+    {
+        "github/copilot.vim",
+        config = function ()
+            vim.g.copilot_no_tab_map = true
+            vim.keymap.set('i', '<M-Tab>', 'copilot#Accept("\\<CR>")', {
+                expr = true,
+                replace_keycodes = false
+            })
+        end
+    },
+    {
+        "folke/sidekick.nvim",
+        opts = {
+            cli = {
+                mux = {
+                    backend = "tmux",
+                    enabled = true
+                }
+            }
+        },
+        keys = {
+            {
+                "<M-Tab>",
+                function ()
+                    if not require("sidekick").nes_jump_or_apply() then
+                        return "<Tab>"
+                    end
+                end,
+                expr = true,
+                desc = "Goto/ Apply Next Edit Suggestion"
+            }
+        }
     }
 }
