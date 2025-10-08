@@ -1,5 +1,5 @@
 local node_modules
-local fixed_node_modules_location = "/.local/lib/node_modules"
+local fixed_node_modules_location = "/.n/lib/node_modules"
 local home = os.getenv("HOME")
 local os = jit.os
 
