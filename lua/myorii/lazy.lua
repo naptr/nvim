@@ -23,5 +23,10 @@ require("lazy").setup({
     change_detection = { notify = false },
     ui = {
         border = "rounded"
+    },
+    dev = {
+        path = "~/.dotfiles/themes/kanso.nvim",
+        patterns = { "kanso" },
+        fallback = true
     }
 })

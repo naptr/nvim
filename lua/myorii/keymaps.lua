@@ -10,8 +10,6 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = tr
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
-vim.keymap.set("n", "<leader>v", "<C-v>", { remap = true } )
-
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 vim.api.nvim_create_user_command("Ex", "Oil", { nargs = "*" })

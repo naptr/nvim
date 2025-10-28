@@ -9,9 +9,11 @@ local VimMode = {
         return "%( " .. self.mode_names[self.mode] .."%) "
     end,
     hl = function(self)
-        local fg = utils.get_highlight("StatusLine").bg
-        local bg = utils.get_highlight(self.mode_colors[self.mode]).fg
-        return { fg = fg, bg = bg, bold = true }
+        return {
+            fg = utils.get_highlight(self.mode_colors[self.mode]).fg,
+            bg = utils.get_highlight(self.mode_colors[self.mode]).bg,
+            bold = true
+        }
     end,
     update = {
         "ModeChanged",
@@ -274,7 +276,7 @@ local Right = {
         end,
         provider = "█",
         hl = function(self)
-            local fg = utils.get_highlight(self.mode_colors[self.mode]).fg
+            local fg = utils.get_highlight(self.mode_colors[self.mode]).bg
             return { fg = fg }
         end,
         update = {
@@ -328,19 +330,20 @@ require("heirline").setup({
             },
             -- left_sep = "",
             mode_colors = {
-                n = "Normal",
-                i = "String",
-                v = "Function",
-                V =  "Function",
-                ["\22"] =  "Function",
-                c =  "Number",
-                s =  "Statement",
-                S =  "Statement",
-                ["\19"] =  "Statement",
-                R =  "Number",
-                r =  "Number",
-                ["!"] =  "Error",
-                t =  "Error",
+                -- n = "MiniStatuslineModeNormal",
+                i = "MiniStatuslineModeInsert",
+                v = "MiniStatuslineModeVisual",
+                V =  "MiniStatuslineModeVisual",
+                ["\22"] =  "MiniStatuslineModeVisual",
+                c =  "MiniStatuslineModeCommand",
+                s =  "MiniStatuslineModeSelect",
+                S =  "MiniStatuslineModeSelect",
+                ["\19"] =  "MiniStatuslineModeSelect",
+                R =  "MiniStatuslineModeReplace",
+                r =  "MiniStatuslineModeReplace",
+                ["!"] =  "MiniStatuslineModeShell",
+                t =  "MiniStatuslineModeTerminal",
+                n = "MiniStatuslineModeNormal",
             },
         },
         Left,
