@@ -49,15 +49,23 @@ return {
             default_file_explorer = true
         }
     },
+    -- {
+    --     "github/copilot.vim",
+    --     config = function ()
+    --         vim.g.copilot_no_tab_map = true
+    --         vim.keymap.set('i', '<M-Tab>', 'copilot#Accept("\\<CR>")', {
+    --             expr = true,
+    --             replace_keycodes = false
+    --         })
+    --     end
+    -- },
     {
-        "github/copilot.vim",
-        config = function ()
-            vim.g.copilot_no_tab_map = true
-            vim.keymap.set('i', '<M-Tab>', 'copilot#Accept("\\<CR>")', {
-                expr = true,
-                replace_keycodes = false
-            })
-        end
+        "supermaven-inc/supermaven-nvim",
+        opts = {
+            keymaps = {
+                accept_suggestion = "<M-Tab>"
+            }
+        }
     },
     {
         "folke/sidekick.nvim",

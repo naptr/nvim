@@ -24,6 +24,7 @@ local cmp_kinds = {
     Event = '  ',
     Operator = '  ',
     TypeParameter = '  ',
+    Supermaven = '  ',
 }
 
 return {
@@ -86,7 +87,8 @@ return {
                         end
                     },
                     { name = "luasnip" },
-                    { name = "nvim_lsp_signature_help" }
+                    { name = "nvim_lsp_signature_help" },
+                    { name = "supermaven" }
                 }, {
                         { name = "buffer" },
                         { name = "path" }
@@ -99,6 +101,9 @@ return {
                 },
                 formatting = {
                     format = function (entry, vim_item)
+                        local kind = entry.source.name == "supermaven"
+                            and "Copilot"
+                            or vim_item.kind
                         vim_item.kind = string.format(
                             "%s %s",
                             (cmp_kinds[vim_item.kind] or ""),
@@ -110,7 +115,12 @@ return {
                             luasnip = "[LuaSnip]",
                             nvim_lua = "[Lua]",
                             latex_symbols = "[LaTeX]",
+                            supermaven = "[Maven]"
                         })[entry.source.name]
+                        vim_item.kind_hl_group = string.format(
+                            "CmpItemKind%s",
+                            kind
+                        )
                         return vim_item
                     end
                 }
